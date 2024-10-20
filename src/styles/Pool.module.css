@@ -55,3 +55,17 @@
   background-color: var(--primary);
   color: white;
 }
+
+.metadataGrid {
+  margin: 2.5rem 0;
+  display: grid;
+  gap: 2rem 1rem;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.infoLabel {
+  display: flex;
+  flex-direction: column;
+  height: 2.5rem;
+  justify-content: space-between;
+}
