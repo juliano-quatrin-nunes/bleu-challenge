@@ -1,4 +1,4 @@
-import styles from "@/styles/Pool.module.css";
+import styles from "./PoolHeader.module.css";
 
 interface PoolHeaderProps {
   poolId: string;
@@ -9,7 +9,7 @@ const PoolHeader = ({ poolId }: PoolHeaderProps) => {
     <div>
       <h1 className={styles.title}>Pool Info</h1>
       <div
-        className={`${styles.spaceBetweenRow} ${styles.poolIdContainer} ${styles.title}`}
+        className={styles.poolIdContainer}
       >
         <h3>Pool ID</h3>
         <h3 className={styles.primaryTextColor}>{poolId}</h3>

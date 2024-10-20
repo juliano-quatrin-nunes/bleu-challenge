@@ -1,6 +1,6 @@
-import VisualizeMetadataGrid from "@/components/visualize/VisualizeMetadataGrid";
-import PoolHeader from "@/components/PoolHeader";
-import VisualizeMetadataHeader from "@/components/visualize/VisualizeMetadataHeader";
+import PoolHeader from "@/components/PoolHeader/PoolHeader";
+import Grid from "@/components/VisualizeMetadata/Grid/Grid";
+import Header from "@/components/VisualizeMetadata/Header/VisualizeHeader";
 import styles from "@/styles/Pool.module.css";
 import { useRouter } from "next/router";
 
@@ -23,8 +23,8 @@ const Visualize = () => {
       <div className={styles.poolInfo}>
         <PoolHeader poolId={poolId} />
         <div className={styles.metadataContainer}>
-          <VisualizeMetadataHeader />
-          <VisualizeMetadataGrid metadata={metadata} />
+          <Header />
+          <Grid metadata={metadata} />
         </div>
       </div>
     </div>

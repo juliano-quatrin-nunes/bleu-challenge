@@ -1,11 +1,11 @@
-import styles from "@/styles/Pool.module.css";
-import InfoLabel from "./InfoLabel";
+import styles from "./Grid.module.css";
+import InfoLabel from "../InfoLabel/InfoLabel";
 
-interface MetadataGridProps {
+interface GridProps {
   metadata: Record<string, string>;
 }
 
-const MetadataGrid = ({ metadata }: MetadataGridProps) => {
+const Grid = ({ metadata }: GridProps) => {
   return (
     <div className={styles.metadataGrid}>
       {Object.entries(metadata).map((record, index) => (
@@ -17,4 +17,4 @@ const MetadataGrid = ({ metadata }: MetadataGridProps) => {
   );
 };
 
-export default MetadataGrid;
+export default Grid;

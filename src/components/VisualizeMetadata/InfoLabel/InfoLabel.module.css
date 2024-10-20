@@ -1,0 +1,6 @@
+.infoLabel {
+  display: flex;
+  flex-direction: column;
+  height: 2.5rem;
+  justify-content: space-between;
+}

@@ -1,4 +1,4 @@
-import styles from "@/styles/Pool.module.css";
+import styles from "./InfoLabel.module.css";
 
 interface InfoLabelProps {
   label: string;
