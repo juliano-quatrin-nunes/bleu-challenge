@@ -1,0 +1,13 @@
+.metadataFieldRow {
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.inputField {
+  height: 2rem;
+  border: 1px solid black;
+  border-radius: 2px;
+}

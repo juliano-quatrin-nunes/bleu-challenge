@@ -6,7 +6,7 @@ interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  primary: boolean;
+  primary?: boolean;
 }
 
 const Button = (props: ButtonProps) => {
