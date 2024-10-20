@@ -10,14 +10,14 @@ interface ButtonProps
 }
 
 const Button = (props: ButtonProps) => {
-  const { primary, ...rest } = props;
+  const { primary, children, ...rest } = props;
 
   return (
     <button
       {...rest}
       className={`${styles.button} ${primary && styles.primary}`}
     >
-      Edit metadata
+      {children}
     </button>
   );
 };
