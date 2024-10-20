@@ -3,6 +3,10 @@ export type Metadata = {
   value: string;
 };
 
+export type FormValues = {
+  metadata: Metadata[];
+};
+
 export const convertRecordToMetadataArray = (
   metadata: Record<string, string>
 ): Metadata[] => {

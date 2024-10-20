@@ -5,7 +5,9 @@ const Footer = () => {
   return (
     <div className={styles.spaceBetweenRow}>
       <Button>Cancel</Button>
-      <Button primary>Save</Button>
+      <Button primary type="submit">
+        Save
+      </Button>
     </div>
   );
 };

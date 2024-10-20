@@ -1,20 +1,22 @@
-import styles from "./List.module.css";
+import { FormValues, Metadata } from "@/utils/utils";
+import { FieldArray, useFormikContext } from "formik";
 import MetadataFieldRow from "../FieldRow/FieldRow";
-import { convertRecordToMetadataArray } from "@/utils/utils";
+import styles from "./List.module.css";
 
-interface MetadataGridProps {
-  metadataRecord: Record<string, string>;
-}
-
-const List = ({ metadataRecord }: MetadataGridProps) => {
-  const initialValues = convertRecordToMetadataArray(metadataRecord);
+const List = () => {
+  const { values } = useFormikContext<FormValues>();
 
   return (
-    <div className={styles.metadataList}>
-      {initialValues.map(() => (
-        <MetadataFieldRow />
-      ))}
-    </div>
+    <FieldArray
+      name="metadata"
+      render={({ remove }) => (
+        <div className={styles.metadataList}>
+          {values.metadata.map((_: Metadata, index: number) => (
+            <MetadataFieldRow index={index} handleRemove={remove} key={index} />
+          ))}
+        </div>
+      )}
+    />
   );
 };
 

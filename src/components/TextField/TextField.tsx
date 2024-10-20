@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from "react";
-import styles from "./Field.module.css";
+import styles from "./TextField.module.css";
 
 interface FieldProps
   extends DetailedHTMLProps<
@@ -9,7 +9,7 @@ interface FieldProps
   label: string;
 }
 
-const Field = (props: FieldProps) => {
+const TextField = (props: FieldProps) => {
   const { label, ...rest } = props;
 
   return (
@@ -20,4 +20,4 @@ const Field = (props: FieldProps) => {
   );
 };
 
-export default Field;
+export default TextField;
