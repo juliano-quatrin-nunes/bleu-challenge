@@ -11,7 +11,9 @@ const List = ({ metadataRecord }: MetadataGridProps) => {
 
   return (
     <div className={styles.metadataList}>
-      <MetadataFieldRow />
+      {initialValues.map(() => (
+        <MetadataFieldRow />
+      ))}
     </div>
   );
 };

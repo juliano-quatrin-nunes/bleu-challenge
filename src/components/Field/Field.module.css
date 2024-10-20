@@ -1,0 +1,17 @@
+.inputField {
+  height: 2rem;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.verticalFlow {
+  display: flex;
+  flex-direction: column;
+  height: 3.25rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.label {
+  font-weight: 600;
+}
