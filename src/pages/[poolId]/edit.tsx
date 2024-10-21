@@ -1,8 +1,10 @@
+import Button from "@/components/Button/Button";
 import Footer from "@/components/EditMetadata/Footer/Footer";
 import EditHeader from "@/components/EditMetadata/Header/EditHeader";
 import List from "@/components/EditMetadata/List/List";
 import PoolHeader from "@/components/PoolHeader/PoolHeader";
 import styles from "@/styles/Pool.module.css";
+import { pinata } from "@/utils/pinata";
 import { convertRecordToMetadataArray, FormValues } from "@/utils/utils";
 import { Form, Formik } from "formik";
 import { useRouter } from "next/router";
@@ -24,10 +26,14 @@ const Visualize = () => {
   const initialValues = convertRecordToMetadataArray(metadataRecord);
   console.log(initialValues);
 
+  const testAuthentication = () =>
+    pinata.testAuthentication().then((value) => console.log(value));
+
   return (
     <div className={styles.container}>
       <div className={styles.poolInfo}>
         <PoolHeader poolId={poolId} />
+        <Button onClick={testAuthentication}>Upload</Button>
 
         <Formik<FormValues>
           initialValues={{ metadata: initialValues }}
