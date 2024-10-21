@@ -26,14 +26,16 @@ const Visualize = () => {
   const initialValues = convertRecordToMetadataArray(metadataRecord);
   console.log(initialValues);
 
-  const testAuthentication = () =>
-    pinata.testAuthentication().then((value) => console.log(value));
+  const upload = () =>
+    pinata.upload
+      .json(metadataRecord)
+      .then((value) => console.log(value.IpfsHash));
 
   return (
     <div className={styles.container}>
       <div className={styles.poolInfo}>
         <PoolHeader poolId={poolId} />
-        <Button onClick={testAuthentication}>Upload</Button>
+        <Button onClick={upload}>Upload</Button>
 
         <Formik<FormValues>
           initialValues={{ metadata: initialValues }}
