@@ -40,7 +40,10 @@ const Visualize = () => {
           <PoolHeader poolId={poolId} />
           <div className={styles.metadataContainer}>
             {isEditMode ? (
-              <EditMetadataContainer metadata={metadata} />
+              <EditMetadataContainer
+                metadata={metadata}
+                toggleEditMode={toggleEditMode}
+              />
             ) : (
               <VisualizeMetadataContainer
                 metadata={metadata}

@@ -6,17 +6,24 @@ import List from "./EditMetadata/List/List";
 
 interface EditMetadataContainerProps {
   metadata: Record<string, string>;
+  toggleEditMode: () => void;
 }
 
 const EditMetadataContainer = (props: EditMetadataContainerProps) => {
-  const { metadata } = props;
+  const { metadata, toggleEditMode } = props;
 
   const initialValues = convertRecordToMetadataArray(metadata);
+
+  const handleSubmit = (values: FormValues) => {
+    console.log(values);
+    toggleEditMode();
+  };
 
   return (
     <Formik<FormValues>
       initialValues={{ metadata: initialValues }}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={handleSubmit}
+      onReset={toggleEditMode}
     >
       {() => (
         <Form>
