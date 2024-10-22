@@ -1,10 +1,10 @@
-import { FormValues, Metadata } from "@/utils/utils";
-import { FieldArray, useFormikContext } from "formik";
-import MetadataFieldRow from "../FieldRow/FieldRow";
-import styles from "./List.module.css";
+import { FormValues, Metadata } from '@/utils/utils'
+import { FieldArray, useFormikContext } from 'formik'
+import MetadataFieldRow from '../FieldRow/FieldRow'
+import styles from './List.module.css'
 
 const List = () => {
-  const { values } = useFormikContext<FormValues>();
+  const { values } = useFormikContext<FormValues>()
 
   return (
     <FieldArray
@@ -17,7 +17,7 @@ const List = () => {
         </div>
       )}
     />
-  );
-};
+  )
+}
 
-export default List;
+export default List

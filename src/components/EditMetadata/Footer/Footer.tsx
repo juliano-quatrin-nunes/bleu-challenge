@@ -1,5 +1,5 @@
-import Button from "@/components/Button/Button";
-import styles from "./Footer.module.css";
+import Button from '@/components/Button/Button'
+import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         Save
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

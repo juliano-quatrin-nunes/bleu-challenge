@@ -1,15 +1,15 @@
-import Button from "@/components/Button/Button";
-import styles from "./VisualizeHeader.module.css";
-import { useRouter } from "next/router";
+import Button from '@/components/Button/Button'
+import styles from './VisualizeHeader.module.css'
+import { useRouter } from 'next/router'
 
 interface VisualizeHeaderProps {
-  toggleEditMode: () => void;
+  toggleEditMode: () => void
 }
 
 const VisualizeHeader = (props: VisualizeHeaderProps) => {
-  const { toggleEditMode } = props;
+  const { toggleEditMode } = props
 
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div className={styles.spaceBetweenRow}>
@@ -18,7 +18,7 @@ const VisualizeHeader = (props: VisualizeHeaderProps) => {
         Edit
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default VisualizeHeader;
+export default VisualizeHeader
