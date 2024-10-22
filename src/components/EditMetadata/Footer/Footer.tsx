@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 const Footer = () => {
   return (
     <div className={styles.spaceBetweenRow}>
-      <Button>Cancel</Button>
+      <Button type="reset">Cancel</Button>
       <Button primary type="submit">
         Save
       </Button>

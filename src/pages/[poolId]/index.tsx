@@ -1,9 +1,8 @@
+import EditMetadataContainer from "@/components/EditMetadataContainer";
 import PoolHeader from "@/components/PoolHeader/PoolHeader";
-import Grid from "@/components/VisualizeMetadata/Grid/Grid";
-import Header from "@/components/VisualizeMetadata/Header/VisualizeHeader";
+import VisualizeMetadataContainer from "@/components/VisualizeMetadataContainer";
 import styles from "@/styles/Pool.module.css";
 import { abi } from "@/utils/abi";
-import { pinata } from "@/utils/pinata";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useReadContract } from "wagmi";
@@ -24,6 +23,8 @@ const Visualize = () => {
   const poolId = router.query?.poolId as string;
 
   const [metadata, setMetadata] = useState<Record<string, string>>();
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
+  const toggleEditMode = () => setIsEditMode((prevState) => !prevState);
 
   useEffect(() => {
     data &&
@@ -38,8 +39,17 @@ const Visualize = () => {
         <div className={styles.poolInfo}>
           <PoolHeader poolId={poolId} />
           <div className={styles.metadataContainer}>
-            <Header />
-            <Grid metadata={metadata} />
+            {isEditMode ? (
+              <EditMetadataContainer
+                metadata={metadata}
+                toggleEditMode={toggleEditMode}
+              />
+            ) : (
+              <VisualizeMetadataContainer
+                metadata={metadata}
+                toggleEditMode={toggleEditMode}
+              />
+            )}
           </div>
         </div>
       </div>
