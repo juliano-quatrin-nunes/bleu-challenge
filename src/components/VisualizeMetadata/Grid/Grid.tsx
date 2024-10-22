@@ -1,8 +1,8 @@
-import styles from "./Grid.module.css";
-import InfoLabel from "../InfoLabel/InfoLabel";
+import styles from './Grid.module.css'
+import InfoLabel from '../InfoLabel/InfoLabel'
 
 interface GridProps {
-  metadata: Record<string, string>;
+  metadata: Record<string, string>
 }
 
 const Grid = ({ metadata }: GridProps) => {
@@ -14,7 +14,7 @@ const Grid = ({ metadata }: GridProps) => {
         </InfoLabel>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Grid;
+export default Grid

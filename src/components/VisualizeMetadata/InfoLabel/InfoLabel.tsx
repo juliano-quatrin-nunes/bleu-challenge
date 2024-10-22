@@ -1,8 +1,8 @@
-import styles from "./InfoLabel.module.css";
+import styles from './InfoLabel.module.css'
 
 interface InfoLabelProps {
-  label: string;
-  children: string;
+  label: string
+  children: string
 }
 
 const InfoLabel = ({ children, label }: InfoLabelProps) => {
@@ -11,6 +11,6 @@ const InfoLabel = ({ children, label }: InfoLabelProps) => {
       <h4>{label}</h4>
       {children}
     </div>
-  );
-};
-export default InfoLabel;
+  )
+}
+export default InfoLabel
