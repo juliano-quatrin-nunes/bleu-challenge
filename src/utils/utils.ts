@@ -18,3 +18,5 @@ export const metadataArrayToRecord = (metadata: Metadata[]): Record<string, stri
     return acc
   }, {} as Record<string, string>)
 }
+
+export const contractId = '0x61FD2dedA9c8a1ddb9F3F436D548C58643936f02'

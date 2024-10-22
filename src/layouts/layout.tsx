@@ -1,6 +1,6 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { ReactNode } from 'react'
 import styles from './layout.module.css'
-import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (

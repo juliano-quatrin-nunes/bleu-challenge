@@ -4,27 +4,26 @@ import VisualizeMetadataContainer from '@/components/VisualizeMetadataContainer'
 import { useReadIpfsJson } from '@/hooks/pinata'
 import styles from '@/styles/Pool.module.css'
 import { abi } from '@/utils/abi'
+import { contractId } from '@/utils/utils'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { Hex } from 'viem'
 import { useReadContract } from 'wagmi'
 
-const contractId = '0x61FD2dedA9c8a1ddb9F3F436D548C58643936f02'
-const poolIdHex = '0xe13ab90f74c371ac2e8a531bf80f08b4d90cffff000200000000000000000161'
-
 const Visualize = () => {
+  const [isEditMode, setIsEditMode] = useState<boolean>(false)
+  const router = useRouter()
+
+  const poolId = router.query?.poolId as Hex
+
   const { data: cid } = useReadContract({
     abi,
     address: contractId,
     functionName: 'poolIdMetadataCIDMap',
-    args: [poolIdHex],
+    args: [poolId],
   })
 
   const { data: metadata } = useReadIpfsJson(cid)
-
-  const [isEditMode, setIsEditMode] = useState<boolean>(false)
-
-  const router = useRouter()
-  const poolId = router.query?.poolId as string
 
   const toggleEditMode = () => setIsEditMode((prevState) => !prevState)
 
@@ -35,7 +34,7 @@ const Visualize = () => {
           <PoolHeader poolId={poolId} />
           <div className={styles.metadataContainer}>
             {isEditMode ? (
-              <EditMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} />
+              <EditMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} poolId={poolId} />
             ) : (
               <VisualizeMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} />
             )}
