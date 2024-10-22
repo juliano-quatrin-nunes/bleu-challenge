@@ -1,6 +1,7 @@
 import EditMetadataContainer from "@/components/EditMetadataContainer";
 import PoolHeader from "@/components/PoolHeader/PoolHeader";
 import VisualizeMetadataContainer from "@/components/VisualizeMetadataContainer";
+import { useReadIpfsJson } from "@/hooks/pinata";
 import styles from "@/styles/Pool.module.css";
 import { abi } from "@/utils/abi";
 import { useRouter } from "next/router";
@@ -12,26 +13,21 @@ const poolIdHex =
   "0xe13ab90f74c371ac2e8a531bf80f08b4d90cffff000200000000000000000161";
 
 const Visualize = () => {
-  const { data, isSuccess } = useReadContract({
+  const { data: cid } = useReadContract({
     abi,
     address: contractId,
     functionName: "poolIdMetadataCIDMap",
     args: [poolIdHex],
   });
 
+  const { data: metadata } = useReadIpfsJson(cid);
+
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
+
   const router = useRouter();
   const poolId = router.query?.poolId as string;
 
-  const [metadata, setMetadata] = useState<Record<string, string>>();
-  const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const toggleEditMode = () => setIsEditMode((prevState) => !prevState);
-
-  useEffect(() => {
-    data &&
-      fetch(`https://apricot-deep-marmoset-708.mypinata.cloud/ipfs/${data}`)
-        .then((res) => res.json())
-        .then((data) => setMetadata(data));
-  }, [isSuccess]);
 
   return (
     metadata && (
