@@ -5,7 +5,7 @@ import { useReadIpfsJson } from "@/hooks/pinata";
 import styles from "@/styles/Pool.module.css";
 import { abi } from "@/utils/abi";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useReadContract } from "wagmi";
 
 const contractId = "0x61FD2dedA9c8a1ddb9F3F436D548C58643936f02";

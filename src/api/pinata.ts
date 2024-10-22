@@ -1,3 +1,4 @@
+import { PinMutationReponse } from "@/hooks/pinata";
 import axios, { AxiosHeaders } from "axios";
 
 const pinataGateway = "apricot-deep-marmoset-708.mypinata.cloud";
@@ -14,10 +15,15 @@ export const fetchJsonByCid = (cid?: string) => {
     .then((res) => res.data);
 };
 
-export const pinJsonToIpfs = (json: Record<string, string>) => {
-  axios.post(
-    "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-    JSON.stringify(json),
-    { headers: authorized_header }
-  );
+export const pinJsonToIpfs = (
+  json: Record<string, string>
+): Promise<PinMutationReponse> => {
+  console.log(json);
+  return axios
+    .post(
+      "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+      { pinataContent: json },
+      { headers: authorized_header }
+    )
+    .then((res) => res.data);
 };
