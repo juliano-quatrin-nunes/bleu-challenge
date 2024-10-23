@@ -1,9 +1,12 @@
 import { ponder } from "@/generated";
 
-ponder.on("WeightedPoolFactory:FactoryDisabled", async ({ event, context }) => {
-  console.log(event.args);
-});
-
 ponder.on("WeightedPoolFactory:PoolCreated", async ({ event, context }) => {
-  console.log(event.args);
+  const { CreatedPool } = context.db;
+
+  await CreatedPool.create({
+    id: event.args.pool,
+    data: {
+      owner: event.transaction.from,
+    },
+  });
 });
