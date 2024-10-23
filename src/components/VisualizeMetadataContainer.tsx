@@ -1,4 +1,3 @@
-import { QueryKey } from '@tanstack/react-query'
 import Grid from './VisualizeMetadata/Grid/Grid'
 import VisualizeHeader from './VisualizeMetadata/Header/VisualizeHeader'
 
