@@ -8,11 +8,13 @@ interface GridProps {
 const Grid = ({ metadata }: GridProps) => {
   return (
     <div className={styles.metadataGrid}>
-      {Object.entries(metadata).map((record, index) => (
-        <InfoLabel label={record[0]} key={index}>
-          {record[1]}
-        </InfoLabel>
-      ))}
+      {metadata
+        ? Object.entries(metadata).map((record, index) => (
+            <InfoLabel label={record[0]} key={index}>
+              {record[1]}
+            </InfoLabel>
+          ))
+        : 'Loading metadata info...'}
     </div>
   )
 }

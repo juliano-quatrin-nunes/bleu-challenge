@@ -17,7 +17,9 @@ const List = () => {
               <MetadataFieldRow index={index} handleRemove={remove} key={index} />
             ))}
           </div>
-          <Button onClick={push}>Add new field</Button>
+          <Button onClick={push} type="button">
+            Add new field
+          </Button>
         </>
       )}
     />

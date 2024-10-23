@@ -5,15 +5,14 @@ import VisualizeHeader from './VisualizeMetadata/Header/VisualizeHeader'
 interface VisualizeMetadataContainerProps {
   metadata: Record<string, string>
   toggleEditMode: () => void
-  queryKey: QueryKey
 }
 
 const VisualizeMetadataContainer = (props: VisualizeMetadataContainerProps) => {
-  const { metadata, toggleEditMode, queryKey } = props
+  const { metadata, toggleEditMode } = props
 
   return (
     <>
-      <VisualizeHeader toggleEditMode={toggleEditMode} queryKey={queryKey} />
+      <VisualizeHeader toggleEditMode={toggleEditMode} />
       <Grid metadata={metadata} />
     </>
   )

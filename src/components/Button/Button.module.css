@@ -7,9 +7,17 @@
   min-width: 6rem;
 }
 
-.button:hover {
+.button:hover:not(.disabled) {
   background-image: linear-gradient(rgb(0 0 0/15%) 0 0);
   cursor: pointer;
+}
+
+.button.primary.disabled {
+  background-color: var(--border);
+  border: none;
+}
+
+.button.primary.disabled:hover {
 }
 
 .button.primary {
