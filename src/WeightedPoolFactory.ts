@@ -7,6 +7,7 @@ ponder.on("WeightedPoolFactory:PoolCreated", async ({ event, context }) => {
     id: event.args.pool,
     data: {
       owner: event.transaction.from,
+      timestamp: String(event.block.timestamp),
     },
   });
 });
