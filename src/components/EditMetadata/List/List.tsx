@@ -17,7 +17,7 @@ const List = () => {
               <MetadataFieldRow index={index} handleRemove={remove} key={index} />
             ))}
           </div>
-          <Button onClick={push} type="button">
+          <Button onClick={() => push({ name: '', value: '' })} type="button">
             Add new field
           </Button>
         </>
