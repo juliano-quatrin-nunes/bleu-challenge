@@ -9,6 +9,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-bottom: 1px solid rgb(40, 40, 40);
+  background-color: var(--secondary);
+  border-bottom: 1px solid var(--border);
   box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5);
 }

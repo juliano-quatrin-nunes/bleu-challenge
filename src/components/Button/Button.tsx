@@ -6,10 +6,10 @@ interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
 }
 
 const Button = (props: ButtonProps) => {
-  const { primary, children, ...rest } = props
+  const { primary, children, className, ...rest } = props
 
   return (
-    <button {...rest} className={`${styles.button} ${primary && styles.primary}`}>
+    <button {...rest} className={`${styles.button} ${primary && styles.primary} ${className}`}>
       {children}
     </button>
   )

@@ -4,6 +4,7 @@
   border: 1px solid var(--primary);
   font-weight: bold;
   background-color: white;
+  min-width: 6rem;
 }
 
 .button:hover {

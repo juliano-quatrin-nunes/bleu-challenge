@@ -4,3 +4,13 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.reload {
+  margin-left: 1rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

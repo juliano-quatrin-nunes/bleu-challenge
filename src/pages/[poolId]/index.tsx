@@ -16,7 +16,7 @@ const Visualize = () => {
 
   const poolId = router.query?.poolId as Hex
 
-  const { data: cid } = useReadContract({
+  const { data: cid, queryKey } = useReadContract({
     abi,
     address: contractId,
     functionName: 'poolIdMetadataCIDMap',
@@ -36,7 +36,7 @@ const Visualize = () => {
             {isEditMode ? (
               <EditMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} poolId={poolId} />
             ) : (
-              <VisualizeMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} />
+              <VisualizeMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} queryKey={queryKey}/>
             )}
           </div>
         </div>
