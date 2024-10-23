@@ -1,9 +1,6 @@
 import Button from '@/components/Button/Button'
-import styles from './VisualizeHeader.module.css'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import refreshIcon from '@/../public/Images/refresh.svg'
 import { QueryKey, useQueryClient } from '@tanstack/react-query'
+import styles from './VisualizeHeader.module.css'
 
 interface VisualizeHeaderProps {
   toggleEditMode: () => void
