@@ -1,6 +1,6 @@
 import { abi } from '@/utils/abi'
 import { contractId } from '@/utils/utils'
-import { MutateOptions, useQueryClient } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
 import { Hex } from 'viem'
 import { sepolia } from 'viem/chains'
 import { useAccount, useReadContract, useWatchContractEvent, useWriteContract } from 'wagmi'

@@ -1,7 +1,6 @@
 import { graphql } from '@/gql'
 import { useQuery } from '@tanstack/react-query'
 import request from 'graphql-request'
-import { env } from 'process'
 
 const PROD_PONDER_URL = 'https://bleu-challenge-production.up.railway.app/'
 const DEV_PONDER_URL = 'http://localhost:42069'
@@ -23,7 +22,7 @@ export function usePoolsOwnedBy(ownerId: string) {
   const query = useQuery({
     queryKey,
     queryFn: async () =>
-      request(env.NODE_ENV == 'development' ? DEV_PONDER_URL : PROD_PONDER_URL, allPoolsOwnedBy, { ownerId }),
+      request(process.env.NODE_ENV == 'production' ? PROD_PONDER_URL : DEV_PONDER_URL, allPoolsOwnedBy, { ownerId }),
   })
 
   return { queryKey, ...query }

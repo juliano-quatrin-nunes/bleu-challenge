@@ -1,7 +1,6 @@
 import { Hex } from 'viem'
 import Grid from './VisualizeMetadata/Grid/Grid'
 import VisualizeHeader from './VisualizeMetadata/Header/VisualizeHeader'
-import styles from '@/styles/Pool.module.css'
 
 interface VisualizeMetadataContainerProps {
   toggleEditMode: () => void
