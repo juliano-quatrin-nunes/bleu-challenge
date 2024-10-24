@@ -6,7 +6,8 @@ const allPoolsOwnedBy = graphql(`
   query allPoolsOwnedBy($ownerId: String!) {
     createdPools(where: { owner: $ownerId }) {
       items {
-        owner
+        id
+        timestamp
       }
     }
   }
