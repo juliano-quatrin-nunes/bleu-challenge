@@ -10,7 +10,7 @@ const authorized_header = {
 }
 
 export const fetchJsonByCid = (cid?: string) => {
-  return axios.get(`http://${pinataGateway}/ipfs/${cid}`).then((res) => res.data)
+  return axios.get(`https://${pinataGateway}/ipfs/${cid}`).then((res) => res.data)
 }
 
 export const pinJsonToIpfs = (json: Record<string, string>): Promise<PinMutationReponse> => {
