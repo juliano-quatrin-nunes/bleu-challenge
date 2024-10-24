@@ -1,18 +1,20 @@
+import { Hex } from 'viem'
 import Grid from './VisualizeMetadata/Grid/Grid'
 import VisualizeHeader from './VisualizeMetadata/Header/VisualizeHeader'
+import styles from '@/styles/Pool.module.css'
 
 interface VisualizeMetadataContainerProps {
-  metadata: Record<string, string>
   toggleEditMode: () => void
+  poolId: Hex
 }
 
 const VisualizeMetadataContainer = (props: VisualizeMetadataContainerProps) => {
-  const { metadata, toggleEditMode } = props
+  const { toggleEditMode, poolId } = props
 
   return (
     <>
       <VisualizeHeader toggleEditMode={toggleEditMode} />
-      {metadata ? <Grid metadata={metadata} /> : 'Loading metadata info...'}
+      <Grid poolId={poolId} />
     </>
   )
 }

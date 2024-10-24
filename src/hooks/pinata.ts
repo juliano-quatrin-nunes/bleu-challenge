@@ -12,7 +12,7 @@ export type PinMutationReponse = {
 export function useReadIpfsJson(cid?: string) {
   const queryKey = ['read-json', cid]
 
-  const query = useQuery({
+  const query = useQuery<Record<string, string>>({
     queryKey,
     queryFn: () => fetchJsonByCid(cid),
     enabled: !!cid,
