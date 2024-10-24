@@ -12,7 +12,7 @@ const VisualizeMetadataContainer = (props: VisualizeMetadataContainerProps) => {
   return (
     <>
       <VisualizeHeader toggleEditMode={toggleEditMode} />
-      <Grid metadata={metadata} />
+      {metadata ? <Grid metadata={metadata} /> : 'Loading metadata info...'}
     </>
   )
 }

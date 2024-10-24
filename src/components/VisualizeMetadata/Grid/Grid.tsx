@@ -6,15 +6,17 @@ interface GridProps {
 }
 
 const Grid = ({ metadata }: GridProps) => {
+  const metadataEntries = Object.entries(metadata ?? {})
+
   return (
     <div className={styles.metadataGrid}>
-      {metadata
-        ? Object.entries(metadata).map((record, index) => (
+      {metadataEntries.length
+        ? metadataEntries.map((record, index) => (
             <InfoLabel label={record[0]} key={index}>
               {record[1]}
             </InfoLabel>
           ))
-        : 'Loading metadata info...'}
+        : 'This pool has no metadata'}
     </div>
   )
 }
