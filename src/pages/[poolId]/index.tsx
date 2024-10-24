@@ -2,14 +2,12 @@ import EditMetadataContainer from '@/components/EditMetadataContainer'
 import PoolHeader from '@/components/PoolHeader/PoolHeader'
 import VisualizeMetadataContainer from '@/components/VisualizeMetadataContainer'
 import { useReadIpfsJson } from '@/hooks/pinata'
+import { usePoolMetadataCid, usePoolMetadataUpdatedEvent } from '@/hooks/poolMetadataContract'
 import styles from '@/styles/Pool.module.css'
-import { abi } from '@/utils/abi'
-import { contractId } from '@/utils/utils'
 import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { Hex } from 'viem'
-import { useReadContract, useWatchContractEvent } from 'wagmi'
 
 const Visualize = () => {
   const [isEditMode, setIsEditMode] = useState<boolean>(false)
@@ -18,29 +16,11 @@ const Visualize = () => {
   const poolId = router.query?.poolId as Hex
 
   const queryClient = useQueryClient()
-  const {
-    data: cid,
-    queryKey,
-    isSuccess,
-  } = useReadContract({
-    abi,
-    address: contractId,
-    functionName: 'poolIdMetadataCIDMap',
-    args: [poolId],
-  })
+  const { data: cid, isSuccess } = usePoolMetadataCid(poolId)
   const { data: metadata, queryKey: ipfsQueryKey } = useReadIpfsJson(cid)
+  usePoolMetadataUpdatedEvent(poolId)
 
   const toggleEditMode = () => setIsEditMode((prevState) => !prevState)
-
-  useWatchContractEvent({
-    abi,
-    address: contractId,
-    eventName: 'PoolMetadataUpdated',
-    args: { poolId },
-    onLogs(logs) {
-      queryClient.setQueryData(queryKey, logs[logs.length - 1].args.metadataCID)
-    },
-  })
 
   useEffect(() => {
     isSuccess && !cid && queryClient.setQueryData(ipfsQueryKey, {})
