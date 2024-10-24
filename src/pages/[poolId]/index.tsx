@@ -34,7 +34,7 @@ const Visualize = () => {
           {metadata && isEditMode ? (
             <EditMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} poolId={poolId} />
           ) : (
-            <VisualizeMetadataContainer metadata={metadata} toggleEditMode={toggleEditMode} />
+            <VisualizeMetadataContainer toggleEditMode={toggleEditMode} poolId={poolId}/>
           )}
         </div>
       </div>
