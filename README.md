@@ -1,8 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bleu Challenge
 
-## Getting Started
+<!-- introdução -->
 
-First, run the development server:
+## Project Overview
+
+<!-- Falar o objetivo do projeto, colocar link para produção e link explicando o projeto -->
+
+## Setup and Running Instructions
+
+To run this project on your local environment, for first, clone this repository. You will need to have installed previously `node` and `npm` package manager.
+
+This repository is made of two different projects, separed by two folders: frontend and ponder.
+
+### Ponder project
+
+To run ponder application, navigate to ponder folder, and create the file `.env.local` with the content of `.env.local.example`. You can change the RPC Sepolia URL to any public RPC for Sepolia if you wan't (find [here](https://chainlist.org/chain/11155111)), but it should work with the default one.
+
+At the directory "/ponder", install the dependencies:
+
+```bash
+npm install
+#or
+yarn
+#or
+pnpm install
+```
+
+After that, run the development server:
 
 ```bash
 npm run dev
@@ -10,31 +34,30 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will begin the indexing functions, and will show a progress bar.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Next.js project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+To run the frontend of the application, go to the directory `frontend/`, and do the same steps used for running the ponder project:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Install the dependencies using the package manager you want;
+2. Run the development server.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Implemented Features
 
-## Learn More
+I have established three key criteria to prioritize various features:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Essentiality**: Features critical to the project's functionality.
+2. **Familiarity and Difficulty**: The complexity of the task and my familiarity with the required tools.
+3. **Value Delivery**: Features that will provide significant value to project clients.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The highest priority features for implementation were the **Must Have** requirements, specifically the pool metadata visualization and the ability to update pool metadata.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To initiate the implementation of these features, I created a design prototype in Figma. This prototype aimed to develop an intuitive interface while designing specific yet straightforward components. It also facilitated testing how these components would function together. Furthermore, the prototype served as a reference point for the subsequent frontend development, which started immediately after its completion.
 
-## Deploy on Vercel
+The requirement "**Implement a form for metadata updates"** directly corresponds to the metadata update functionality. Thus, this task was prioritized immediately after the metadata reading feature, simultaneously with the metadata update.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Following that, I scheduled the development of a sidebar that lists all pools owned by the user. While this feature was deemed important, it was not essential. Additionally, it posed a higher level of difficulty since it required the development of an indexer to implement effectively.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
