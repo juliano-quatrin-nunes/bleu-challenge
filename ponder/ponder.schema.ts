@@ -1,4 +1,4 @@
-import { createSchema } from "@ponder/core";
+import { createSchema } from '@ponder/core'
 
 export default createSchema((p) => ({
   CreatedPool: p.createTable({
@@ -6,4 +6,4 @@ export default createSchema((p) => ({
     owner: p.string(),
     timestamp: p.string(),
   }),
-}));
+}))
