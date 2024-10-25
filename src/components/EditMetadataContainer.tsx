@@ -6,7 +6,7 @@ import { Hex } from 'viem'
 import Footer from './EditMetadata/Footer/Footer'
 import EditHeader from './EditMetadata/Header/EditHeader'
 import List from './EditMetadata/List/List'
-import { PinMutationReponse } from '@/api/pinata'
+import { PinMutationResponse } from '@/api/pinata'
 
 interface EditMetadataContainerProps {
   metadata: Record<string, string>
@@ -22,7 +22,7 @@ const EditMetadataContainer = (props: EditMetadataContainerProps) => {
 
   const initialValues = convertRecordToMetadataArray(metadata)
 
-  const writeCidToPool = (data: PinMutationReponse) => writeCidToContract(data.IpfsHash, toggleEditMode)
+  const writeCidToPool = (data: PinMutationResponse) => writeCidToContract(data.IpfsHash, toggleEditMode)
 
   const handleSubmit = (values: FormValues) => {
     const metadata = metadataArrayToRecord(values.metadata)

@@ -8,7 +8,7 @@ const authorized_header = {
   Authorization: `Bearer ${pinataJWT}`,
 }
 
-export type PinMutationReponse = {
+export type PinMutationResponse = {
   IpfsHash: string
   PinSize: number
   Timestamp: string
@@ -19,7 +19,7 @@ export const fetchJsonByCid = (cid?: string) => {
   return axios.get(`https://${pinataGateway}/ipfs/${cid}`).then((res) => res.data)
 }
 
-export const pinJsonToIpfs = (json: Record<string, string>): Promise<PinMutationReponse> => {
+export const pinJsonToIpfs = (json: Record<string, string>): Promise<PinMutationResponse> => {
   return axios
     .post('https://api.pinata.cloud/pinning/pinJSONToIPFS', { pinataContent: json }, { headers: authorized_header })
     .then((res) => res.data)
