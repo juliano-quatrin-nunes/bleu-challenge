@@ -1,8 +1,9 @@
 import EditMetadataContainer from '@/components/EditMetadataContainer'
 import PoolHeader from '@/components/PoolHeader/PoolHeader'
 import VisualizeMetadataContainer from '@/components/VisualizeMetadataContainer'
-import { useReadIpfsJson } from '@/hooks/pinata'
-import { usePoolMetadataCid, usePoolMetadataUpdatedEvent } from '@/hooks/poolMetadataContract'
+import { useFetchIpfsJson } from '@/hooks/useFetchIpfsJson'
+import { useWatchPoolMetadataUpdated } from '@/hooks/useWatchPoolMetadataUpdated'
+import { useGetPoolMetadataCid } from '@/hooks/useGetPoolMetadataCid'
 import styles from '@/styles/Pool.module.css'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -14,9 +15,9 @@ const Visualize = () => {
 
   const poolId = router.query?.poolId as Hex
 
-  const { data: cid } = usePoolMetadataCid(poolId)
-  const { data: metadata } = useReadIpfsJson(cid)
-  usePoolMetadataUpdatedEvent(poolId)
+  const { data: cid } = useGetPoolMetadataCid(poolId)
+  const { data: metadata } = useFetchIpfsJson(cid)
+  useWatchPoolMetadataUpdated(poolId)
 
   const toggleEditMode = () => setIsEditMode((prevState) => !prevState)
 

@@ -1,11 +1,11 @@
-import { usePoolsOwnedBy } from '@/hooks/ponder'
+import { useOwnedPools } from '@/hooks/useOwnedPools'
 import styles from './SideMenu.module.css'
 import { useAccount } from 'wagmi'
 import PoolCard from './PoolCard/PoolCard'
 
 const SideMenu = () => {
   const { address } = useAccount()
-  const { data } = usePoolsOwnedBy(address ?? '')
+  const { data } = useOwnedPools(address ?? '')
 
   const userNotConnected = !address
 

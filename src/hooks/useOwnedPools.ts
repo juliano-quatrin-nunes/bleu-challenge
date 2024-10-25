@@ -16,7 +16,7 @@ const allPoolsOwnedBy = graphql(`
   }
 `)
 
-export function usePoolsOwnedBy(ownerId: string) {
+export function useOwnedPools(ownerId: string) {
   const queryKey = ['pools-owned-by', ownerId]
 
   const query = useQuery({

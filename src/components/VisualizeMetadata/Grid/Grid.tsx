@@ -1,16 +1,16 @@
 import styles from './Grid.module.css'
 import InfoLabel from '../InfoLabel/InfoLabel'
 import { Hex } from 'viem'
-import { usePoolMetadataCid } from '@/hooks/poolMetadataContract'
-import { useReadIpfsJson } from '@/hooks/pinata'
+import { useGetPoolMetadataCid } from '@/hooks/useGetPoolMetadataCid'
+import { useFetchIpfsJson } from '@/hooks/useFetchIpfsJson'
 
 interface GridProps {
   poolId: Hex
 }
 
 const Grid = ({ poolId }: GridProps) => {
-  const { data: cid, isSuccess, isLoading } = usePoolMetadataCid(poolId)
-  const { data: metadata } = useReadIpfsJson(cid)
+  const { data: cid, isSuccess, isLoading } = useGetPoolMetadataCid(poolId)
+  const { data: metadata } = useFetchIpfsJson(cid)
 
   if (isLoading) return <div className={styles.metadataGrid}>Loading metadata info...</div>
   if (isSuccess && !cid) return <div className={styles.metadataGrid}>This pool has no metadata</div>

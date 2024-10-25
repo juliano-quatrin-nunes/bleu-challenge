@@ -1,11 +1,12 @@
-import { PinMutationReponse, usePinJsonToIpfs } from '@/hooks/pinata'
-import { useUpdateMetadataCid } from '@/hooks/poolMetadataContract'
+import { usePinJsonToIpfs } from '@/hooks/usePinJsonToIpfs'
+import { useSetPoolMetadataCid } from '@/hooks/useSetPoolMetadataCid'
 import { convertRecordToMetadataArray, FormValues, metadataArrayToRecord } from '@/utils/utils'
 import { Form, Formik } from 'formik'
 import { Hex } from 'viem'
 import Footer from './EditMetadata/Footer/Footer'
 import EditHeader from './EditMetadata/Header/EditHeader'
 import List from './EditMetadata/List/List'
+import { PinMutationReponse } from '@/api/pinata'
 
 interface EditMetadataContainerProps {
   metadata: Record<string, string>
@@ -17,7 +18,7 @@ const EditMetadataContainer = (props: EditMetadataContainerProps) => {
   const { metadata, toggleEditMode, poolId } = props
 
   const { mutate } = usePinJsonToIpfs()
-  const { writeCidToContract } = useUpdateMetadataCid(poolId)
+  const { writeCidToContract } = useSetPoolMetadataCid(poolId)
 
   const initialValues = convertRecordToMetadataArray(metadata)
 

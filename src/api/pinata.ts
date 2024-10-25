@@ -1,4 +1,3 @@
-import { PinMutationReponse } from '@/hooks/pinata'
 import axios from 'axios'
 
 const pinataGateway = 'apricot-deep-marmoset-708.mypinata.cloud'
@@ -7,6 +6,13 @@ const pinataJWT =
 
 const authorized_header = {
   Authorization: `Bearer ${pinataJWT}`,
+}
+
+export type PinMutationReponse = {
+  IpfsHash: string
+  PinSize: number
+  Timestamp: string
+  isDuplicate: boolean
 }
 
 export const fetchJsonByCid = (cid?: string) => {
