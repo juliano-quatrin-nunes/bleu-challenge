@@ -9,10 +9,10 @@ interface GridProps {
 }
 
 const Grid = ({ poolId }: GridProps) => {
-  const { data: cid, isSuccess, isLoading } = useGetPoolMetadataCid(poolId)
-  const { data: metadata } = useFetchIpfsJson(cid)
+  const { data: cid, isSuccess, isLoading: isLoadingCid } = useGetPoolMetadataCid(poolId)
+  const { data: metadata, isLoading: isLoadingMetadata } = useFetchIpfsJson(cid)
 
-  if (isLoading) return <div className={styles.metadataGrid}>Loading metadata info...</div>
+  if (isLoadingCid || isLoadingMetadata) return <div className={styles.metadataGrid}>Loading metadata info...</div>
   if (isSuccess && !cid) return <div className={styles.metadataGrid}>This pool has no metadata</div>
 
   if (metadata)
