@@ -1,7 +1,6 @@
 import { createConfig } from '@ponder/core'
 import { http } from 'viem'
-
-import { WeightedPoolFactoryAbi } from './abis/WeightedPoolFactoryAbi'
+import { VaultAbi } from './abis/VaultAbi'
 
 export default createConfig({
   networks: {
@@ -11,11 +10,11 @@ export default createConfig({
     },
   },
   contracts: {
-    WeightedPoolFactory: {
-      abi: WeightedPoolFactoryAbi,
-      address: '0x7920bfa1b2041911b354747ca7a6cdd2dfc50cfd',
+    Vault: {
+      abi: VaultAbi,
+      address: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
       network: 'sepolia',
-      startBlock: 3424893,
+      startBlock: 3418831,
     },
   },
 })
