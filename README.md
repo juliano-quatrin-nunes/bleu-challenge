@@ -6,6 +6,8 @@ The frontend of the project was built with Next.js and deployed on Vercel. You c
 
 The Ponder project, used for indexing, was deployed on Railway, as suggested in the Ponder documentation. You can make GraphQL requests directly to it using [this link](https://bleu-challenge-production.up.railway.app/).
 
+I recorded two videos to showcase the project: one demonstrating the production version and highlighting the key features, and another discussing the challenges I faced during development. You can watch them here: [Production Demo Video](https://www.loom.com/share/7de51d206879423db92bb1a4f2f59cde?sid=6a7ce00a-76b0-42a7-87f9-1289d724fda3) and [Challenges Video](https://www.loom.com/share/08721e82d1514a06a7bb80224f551a8b?sid=482681bf-0ca4-4e4c-8945-4bd22df7908e).
+
 ## Setup and Running Instructions
 
 To run this project on your local environment, for first, clone this repository. You will need to have installed previously `node` and `npm` package manager.
@@ -42,7 +44,7 @@ The application will begin the indexing functions, and will show a progress bar.
 
 To run the frontend of the application, go to the directory `frontend/`, and do the same steps used for running the ponder project:
 
-1. Install the dependencies using the package manager you want;
+1. Install the dependencies using the package manager of your preference.
 2. Run the development server.
 
 ## Implemented Features
