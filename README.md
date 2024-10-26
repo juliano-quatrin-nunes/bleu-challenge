@@ -1,10 +1,10 @@
-# Bleu Challenge
-
-<!-- introdução -->
-
 ## Project Overview
 
-<!-- Falar o objetivo do projeto, colocar link para produção e link explicando o projeto -->
+This project was developed as part of a selection process challenge. Its main objective is to allow users to view and manage metadata for Balancer pools, using IPFS for decentralized data storage.
+
+The frontend of the project was built with Next.js and deployed on Vercel. You can access it [here](https://bleu-challenge-three.vercel.app/).
+
+The Ponder project, used for indexing, was deployed on Railway, as suggested in the Ponder documentation. You can make GraphQL requests directly to it using [this link](https://bleu-challenge-production.up.railway.app/).
 
 ## Setup and Running Instructions
 
@@ -83,3 +83,11 @@ TanStack Query was chosen for handling queries, mutations, and caching, as it is
 ### Ponder for Indexing Balancer Pools
 
 A separate Ponder project was set up to handle the indexing of on-chain data, specifically to retrieve all pools registered in the Balancer Pool Metadata contract via the Balancer Vault contract. By default, it provides a GraphQL server, which was used in the frontend to fetch pools associated with specific users. Ponder was chosen based on the team's suggestion.
+
+## Assumptions and Simplifications
+
+It was designed so that metadata names can be user-defined, allowing flexibility in form entries. Each metadata entry has two fields: one for the name and one for the value. Additionally, users can add or remove fields as needed.
+
+The value for each metadata is always treated as a string. Adding objects or other complex data types as metadata values is not supported, simplifying the form handling process.
+
+To keep the design lightweight and focused on core functionality, more complex components like spinners for loading states or tooltips on buttons were not implemented. The decision was made to keep the design minimal, prioritizing functionality over UI complexity. A potential improvement for future iterations would be to include these components to enhance user experience.
