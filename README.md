@@ -61,3 +61,25 @@ The requirement "**Implement a form for metadata updates"** directly corresponds
 
 Following that, I scheduled the development of a sidebar that lists all pools owned by the user. While this feature was deemed important, it was not essential. Additionally, it posed a higher level of difficulty since it required the development of an indexer to implement effectively.
 
+## Architecture Decisions
+
+### Choice of Next.js for Frontend
+
+The decision to use Next.js was based on familiarity with the framework, and the pages directory was utilized for the same reason. The project uses version 14, which includes React Server Components, enhancing performance by allowing server-side rendering. For styling, CSS Modules were chosen due to their modularity and scope isolation, which helped maintain clean and manageable styles that are scoped to individual components.
+
+### Form Management with Formik
+
+Formik was selected for form handling in the frontend because of its ease of use and built-in support for array fields. This made form creation more efficient.
+
+### Wallet Connection and Blockchain Integration
+
+To facilitate smooth wallet connections, RainbowKit was implemented due to its simplicity and user-friendly interface.
+Wagmi was also used, as it provides essential hooks for reading and writing to smart contracts, as well as managing user connections.
+
+### State and Data Fetching with TanStack Query and Axios
+
+TanStack Query was chosen for handling queries, mutations, and caching, as it is already used by Wagmi, and I am familiar with it. Additionally, Axios was selected as the HTTP client to handle requests, particularly for pinning and retrieving metadata from IPFS via Pinata.
+
+### Ponder for Indexing Balancer Pools
+
+A separate Ponder project was set up to handle the indexing of on-chain data, specifically to retrieve all pools registered in the Balancer Pool Metadata contract via the Balancer Vault contract. By default, it provides a GraphQL server, which was used in the frontend to fetch pools associated with specific users. Ponder was chosen based on the team's suggestion.
